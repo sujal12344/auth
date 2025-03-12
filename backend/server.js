@@ -3,6 +3,7 @@ import dotenv, { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import path, { dirname } from "path";
+import authRouter from "./route.js";
 
 // import { fileURLToPath } from "url";
 // const __dirname = fileURLToPath(new URL  (".", import.meta.url));
@@ -25,6 +26,8 @@ app.use(
 app.get("/hello", (req, res) => {
   res.send("Hello World");
 });
+
+app.post("/login", authRouter);
 
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
 

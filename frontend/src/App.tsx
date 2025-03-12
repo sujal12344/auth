@@ -2,13 +2,14 @@ import './App.css'
 import { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
 import { Session } from '@supabase/supabase-js'
+import Login from './Login'
 
 export default function App() {
   const [session, setSession] = useState<Session | null>(null)
   const [message, setMessage] = useState<string>('')
 
   useEffect(() => {
-    fetch('https://auth-dhu1.onrender.com/hello')
+    fetch(`${import.meta.env.VITE_SERVER_URL}/hello`)
       .then(response => response.text())
       .then(data => setMessage(data))
       .catch(error => console.error('Error fetching message:', error))
