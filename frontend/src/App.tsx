@@ -8,7 +8,7 @@ export default function App() {
   const [message, setMessage] = useState<string>('')
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_SERVER_URL}/hello`)
+    fetch(`https://auth-dhu1.onrender.com/hello`)
       .then(response => response.text())
       .then(data => setMessage(data))
       .catch(error => console.error('Error fetching message:', error))
