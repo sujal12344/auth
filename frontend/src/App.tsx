@@ -8,7 +8,7 @@ export default function App() {
   const [message, setMessage] = useState<string>('')
 
   useEffect(() => {
-    fetch('http://localhost:5000/hello')
+    fetch('https://auth-dhu1.onrender.com/hello')
       .then(response => response.text())
       .then(data => setMessage(data))
       .catch(error => console.error('Error fetching message:', error))
